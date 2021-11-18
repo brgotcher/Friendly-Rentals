@@ -1,0 +1,65 @@
+<div id="table">
+<h2>Body types table</h2>
+<table>
+  <tr>
+    <th>Body ID</th>
+    <th>type</th>
+    <th>rate</th>
+  </tr>
+  <tr>
+    <td>B01</td>
+    <td>Sedan</td>
+    <td>$70</td>
+  </tr>
+</table>
+  
+</div>
+
+<div>
+<h2>Body types</h2>
+
+<div class="row">
+	<div class="columnLeft">
+  	<h4>Add new body type: </h4>
+    <form>
+			<label for="bodyName">Name: </label><br>
+      <input type="text" id="bodyName"><br>
+      <label for="rate">Daily rate: </label><br>
+      <input type="text" id="rate"><br>
+      <br>
+      <input type="submit">  
+		</form>
+  </div>
+  
+  <div class="columnMiddle">
+  	<h4>Change Rate: </h4>
+    <form>
+			<label for="body_change">Body type: </label><br>
+      <select name="body_change" id="body_change">
+        <option value="sedan">Sedan</option>
+        <option value="suv">SUV</option>
+        <option value="truck">Truck</option>
+        <option value="van">Van</option>
+      </select><br>
+      <label for="new_rate">New rate: </label><br>
+      <input type="number" id="new_rate"><br>
+      <br>
+      <input type="submit">
+    </form>
+  </div>
+
+
+  <div class="columnRight">
+    <h4>Delete a body type</h4>
+      <form>
+        <label for="delID">Body ID: </label><br>
+        <input type="text" id="delID"><br>
+        <br>
+        <input type="submit">
+      </form>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

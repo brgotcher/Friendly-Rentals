@@ -1,0 +1,52 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000000;
+  }
+  
+  li {
+	float: left;
+	border: 1px solid black;
+	margin: 2px;
+  }
+  
+  a {
+	display: block;
+	padding: 10px;
+	color: white;
+	text-decoration: none;
+  }
+  
+  div {
+	  border: 1px solid black;
+  }
+
+  .row {
+	  overflow: auto;
+  }
+  
+  .columnLeft {
+	  float: left;
+	width: 33%;
+  }
+  
+  .columnMiddle {
+	  display: inline-block;
+	width: 33%;
+  }
+  
+  .columnRight {
+	  float: right;
+	width: 32.9%;
+  }
+  
+  th {
+	  border: 1px solid black;
+  }
+  
+  td {
+	  border: 1px solid black;
+  }
+  

@@ -1,0 +1,152 @@
+
+<div id="cars_table">
+  <h2>Cars table</h2>
+  <table>
+    <tr>
+      <th>carID</th>
+      <th>bodyID</th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>mileage</th>
+      <th>available</th>
+    </tr>
+    <tr>
+      <td>C001</td>
+      <td>B03</td>
+      <td>Honda</td>
+      <td>Civic</td>
+      <td>2015</td>
+      <td>85000</td>
+      <td>Yes</td>
+    </tr>
+  </table>
+</div>
+  
+<div id="customertable">
+  <h2>Customers Table</h2>
+  <table>
+  	<tr>
+    	<th>customerID</th>
+      <th>customerFirst</th>
+      <th>customerLast</th>
+      <th>phone</th>
+      <th>email</th>
+      <th>street</th>
+      <th>city</th>
+      <th>state</th>
+      <th>zip</th>
+    </tr>
+    <tr>
+    	<td>1</td>
+      <td>Frank</td>
+      <td>Hill</td>
+      <td>9785672345</td>
+      <td>fh@gmail.com</td>
+      <td>123 Pleasant Ln</td>
+      <td>Mossville</td>
+      <td>AZ</td>
+      <td>78452</td>
+    </tr>
+    <tr>
+    	<td>2</td>
+      <td>Mike</td>
+      <td>North</td>
+      <td>1234567890</td>
+      <td>NorthM@yahoo.com</td>
+      <td>3 Jump Cir</td>
+      <td>Sleepy</td>
+      <td>NY</td>
+      <td>88675</td>
+    </tr>
+  </table>
+</div>
+
+<div id="table">
+  <h2>Rentals Table</h2>
+  <table>
+    <tr>
+      <th>carID</th>
+      <th>customerID</th>
+      <th>start</th>
+      <th>end</th>
+      <th>credit card</th>
+      <th>exp date</th>
+      <th>cvv</th>
+      <th>zip</th>
+      <th>total</th>
+    </tr>
+    <tr>
+      <td>C001</td>
+      <td>1</td>
+      <td>2021-10-05</td>
+      <td>2021-10-08</td>
+      <td>1234-5678-9012-3456</td>
+      <td>01/23</td>
+      <td>123</td>
+      <td>97331</td>
+      <td>$210</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+<h2>Edit Rentals Table</h2>
+
+<div class="row">
+	<div class="columnLeft">
+  	<h4>Add New Rental</h4>
+    <form>
+			<label for="car_id">Car ID: </label><br>
+      <input type="text" id="car_id"><br>
+      <label for="customer_id">Customer ID: </label><br>
+      <input type="text" id="customer_id"><br>
+      <label for="start">Start date: </label><br>
+      <input type="date" id="start" min="2021-11-01"><br>
+      <label for="end">End date: </label><br>
+      <input type="date" id="end"><br>
+      <label for="credit_card">Credit card: </label><br>
+      <input type="text" id="credit_card"><br>
+      <label for="exp_date">Expiration: </label><br>
+      <input type="text" id="exp_date"><br>
+      <label for="cvv">CVV: </label><br>
+      <input type="text" id="cvv"><br>
+      <label for="zip">Zip code: </label><br>
+      <input type="number" min="00001" max="999950"><br>
+      <label for="total">Total cost: </label><br>
+      <input type="number" id="total"><br><br>
+      <input type="submit">  
+		</form>
+  </div>
+  
+  <div class="columnMiddle">
+  	<h4>Search Rentals</h4>
+    <form>
+			<label for="customer">Customer ID: </label><br>
+      <input type="text" id="customer"><br>
+      <label for="car">Car ID:</label><br>
+      <input type="text" id="car"><br>
+      <label for="search_start">beginning: </label><br>
+      <input type="date" id="search_start"><br>
+      <label for="search_end">ending: </label><br>
+      <input type="date" id="search_end"><br><br>
+      <input type="submit">
+    </form>
+  </div>
+
+
+  <div class="columnRight">
+    <h4>Delete a Rental</h4>
+      <form>
+        <label for="delCar">Car ID: </label><br>
+        <input type="text" id="delCar"><br>
+        <label for="delCustomer">Customer ID: </label><br>
+        <input type="text" id="delCustomer"><br>
+        <label for="delDate">Date: </label><br>
+        <input type="date" id="delDate"><br><br>
+        <input type="submit">
+      </form>
+  </div>
+</div>
+
+</div>

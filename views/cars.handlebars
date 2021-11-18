@@ -1,0 +1,114 @@
+
+<div id="table">
+  <h2>Cars table</h2>
+  <table>
+    <tr>
+      <th>carID</th>
+      <th>bodyID</th>
+      <th>make</th>
+      <th>model</th>
+      <th>year</th>
+      <th>mileage</th>
+      <th>available</th>
+    </tr>
+    <tr>
+      <td>C001</td>
+      <td>B03</td>
+      <td>Honda</td>
+      <td>Civic</td>
+      <td>2015</td>
+      <td>85000</td>
+      <td>Yes</td>
+    </tr>
+  </table>
+  
+</div>
+
+<h2>Edit Cars table</h2>
+
+<div class="row">
+	<div class="columnLeft">
+  	<h4>Search cars: </h4>
+    <form>
+			<p>Body Type:</p>
+        <input type="checkbox" name="body_type" value="sedan" id="sedan">
+        <label for="sedan">Sedan</label>
+        <input type="checkbox" name="body_type" value="suv" id="suv">
+        <label for="suv">SUV</label>
+        <input type="checkbox" name="body_type" value="truck" id="truck">
+        <label for="Truck">Truck</label>
+        <input type="checkbox" name="body_type" value="van" id="van">
+        <label for="van">Van</label>
+        <input type="checkbox" name="body_type" value="none" id="none">
+        <label for="none">None</label>
+        
+        <p>Make: </p>
+        <input type="checkbox" name="make" value="chevrolet" id="chevrolet">
+        <label for="chevrolet">chevrolet</label>
+        <input type="checkbox" name="make" value="ford" id="ford">
+        <label for="ford">ford</label>
+        <input type="checkbox" name="make" value="honda" id="honda">
+        <label for="honda">honda</label>
+        <input type="checkbox" name="make" value="nissan" id="nissan">
+        <label for="nissan">nissan</label>
+        <input type="checkbox" name="make" value="toyota" id="toyota">
+        <label for="toyota">toyota</label>
+        
+        <p>Year: </p>
+        <label for="early_year">minimum year: </label><br>
+        <input type="number" id="early_year" min="2010" max="2022" step="1" /><br>
+        <label for="late_year">maximum year: </label><br>
+        <input type="number" id="late_year" min="2010" max="2022" step="1" /><br>
+        
+        <p>mileage: </p>
+        <label for="min_mileage">minimum mileage: </label><br>
+        <input type="number" id="min_mileage" min="0" max="200000" step="10" /><br>
+        <label for="max_mileage">maximum mileage: </label><br>
+        <input type="number" id="max_milage" min="2010" max="2022" step="1" /><br>
+        <br>
+        <input type="submit">
+		</form>
+  </div>
+  
+  <div class="columnMiddle">
+  	<h4>Add a car:</h4>
+    <form>
+			<label for="body">body type: </label><br>
+      <select id="body" name="body">
+        <option value="sedan">Sedan</option>
+        <option value="suv">SUV</option>
+        <option value="truck">Truck</option>
+        <option value="van">Van</option>
+        <option value="none">None</option>
+      </select><br>
+      
+      <label for="make">make: </label><br>
+      <select name="make" id="make">
+        <option value="chevrolet">Chevrolet</option>
+        <option value="ford">Ford</option>
+        <option value="honda">Honda</option>
+        <option value="nissan">Nissan</option>
+        <option value="toyota">Toyota</option>
+      </select><br>
+      
+      <label for="model">Model: </label><br>
+      <input type="text" name="model" id="model"><br>
+      
+      <label for="mileage">Mileage: </label><br>
+      <input type="number" id="mileage" min="0" max="200000" step="5"><br>
+      <br>
+      <input type="submit">
+    </form>
+  </div>
+
+
+  <div class="columnRight">
+    <h4>Delete a Car</h4>
+      <form>
+        <label for="delCar">Car ID: </label><br>
+        <input type="text" id="delCar"><br>
+        <br>
+        <input type="submit">
+      </form>
+  </div>
+</div>
