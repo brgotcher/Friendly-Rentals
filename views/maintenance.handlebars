@@ -1,0 +1,88 @@
+
+<div id="table">
+  <h2>Maintenance Table</h2>
+  <table>
+    <tr>
+      <th>Maintenance ID</th>
+      <th>car ID</th>
+      <th>service</th>
+      <th>date</th>
+      <th>cost</th>
+    </tr>
+    <tr>
+      <td>M0153</td>
+      <td>C005</td>
+      <td>Oil change</td>
+      <td>2021-10-16</td>
+      <td>$35</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+<h2>Edit Maintenance Table</h2>
+
+<div class="row">
+	<div class="columnLeft">
+  	<h4>Search maintenance records</h4>
+    <form>
+			<label for="car_id">Car ID: </label><br>
+      <input type="text" id="car_id"><br>
+      
+      <p>Type of Maintenance: </p>
+      <input type="checkbox" name = "type" id="oil">
+      <label for="oil">Oil change</label>
+      <input type="checkbox" name = "type" id="tires">
+      <label for="tires">Tire service</label>
+      <input type="checkbox" name = "type" id="collision">
+      <label for="collision">collision repairs</label>
+      <input type="checkbox" name = "type" id="battery">
+      <label for="battery">battery service</label>
+      
+      <p>Maintenance date: </p>
+      <label for="start">Start date: </label><br>
+      <input type="date" id="start" min="2015-01-01" max="2021-11-01"><br>
+      <label for="end">End date: </label><br>
+      <input type="date" id="end" min="2015-01-01" max="2021-11-01"><br>
+      
+      <br>
+      <input type="submit">
+		</form>
+  </div>
+  
+  <div class="columnMiddle">
+  	<h4>Add a maintenance record</h4>
+    <form>
+			<label for="add_car_id">Car ID: </label><br>
+      <input type="text" id="add_car_id"><br>
+      
+      <label for="add_type">Maintenance type: </label><br>
+      <select name="add_type" id="add_type">
+        <option value="oil">Oil change</option>
+        <option value="tires">Tire service</option>
+        <option value="collision">Collision repairs</option>
+        <option value="battery">Battery service</option>
+      </select><br>
+      
+      <label for="cost">Cost: </label><br>
+      <input type="number" id="cost"><br>
+      
+      <label for="add_date">Maintenance date:</label><br>
+      <input type="date" id="add_date" min="2015-01-01" max="2021-11-01"><br><br>
+      <input type="submit">
+    </form>
+  </div>
+
+
+  <div class="columnRight">
+    <h4>Delete a Record</h4>
+      <form>
+        <label for="delRecord">Maintenance ID: </label><br>
+        <input type="text" id="delRecord"><br>
+        <br>
+        <input type="submit">
+      </form>
+  </div>
+</div>
+
+</div>
