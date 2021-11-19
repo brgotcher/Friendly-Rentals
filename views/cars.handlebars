@@ -1,5 +1,5 @@
 
-<div id="table">
+{{!-- <div id="table">
   <h2>Cars table</h2>
   <table>
     <tr>
@@ -22,7 +22,29 @@
     </tr>
   </table>
   
-</div>
+</div> --}}
+<table>
+  <tr>
+    <th>carID</th>
+    <th>bodyID</th>
+    <th>make</th>
+    <th>model</th>
+    <th>year</th>
+    <th>mileage</th>
+    <th>available</th>
+  </tr>
+  {{#each cars}}
+  <tr>
+    <td>{{this.carID}}</td>
+    <td>{{this.bodyID}}</td>
+    <td>{{this.make}}</td>
+    <td>{{this.model}}</td>
+    <td>{{this.year}}</td>
+    <td>{{this.mileage}}</td>
+    <td>{{this.available}}</td>
+  </tr>
+  {{/each}}
+</table>
 
 <h2>Edit Cars table</h2>
 
@@ -72,7 +94,7 @@
   
   <div class="columnMiddle">
   	<h4>Add a car:</h4>
-    <form>
+    <form id="addCar" action="/cars" method="post" >
 			<label for="body">body type: </label><br>
       <select id="body" name="body">
         <option value="sedan">Sedan</option>
@@ -93,9 +115,12 @@
       
       <label for="model">Model: </label><br>
       <input type="text" name="model" id="model"><br>
+
+      <label for="year">Year: </label><br>
+      <input type="number" name="year" id="year"><br>
       
       <label for="mileage">Mileage: </label><br>
-      <input type="number" id="mileage" min="0" max="200000" step="5"><br>
+      <input type="number" name="mileage" id="mileage" min="0" max="200000" step="5"><br>
       <br>
       <input type="submit">
     </form>
