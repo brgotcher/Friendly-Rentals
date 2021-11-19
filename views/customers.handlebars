@@ -1,41 +1,31 @@
+	<table>
+		<tr>
+			<th>customerID</th>
+			<th>customerFirst</th>
+			<th>customerLast</th>
+			<th>phone</th>
+			<th>email</th>
+			<th>street</th>
+			<th>city</th>
+			<th>state</th>
+			<th>zip</th>
+		</tr>
+		{{#each customers}}
+		<tr>
+		<td>{{this.customerID}}</td>
+		<td>{{this.customerFirst}}</td>
+		<td>{{this.customerLast}}</td>
+		<td>{{this.phone}}</td>
+		<td>{{this.email}}</td>
+		<td>{{this.street}}</td>
+		<td>{{this.city}}</td>
+		<td>{{this.state}}</td>
+		<td>{{this.zip}}</td>
+		</tr>
+		{{/each}}
 
-<div id="customertable">
-  <h2>Customers Table</h2>
-  <table>
-  	<tr>
-    	<th>customerID</th>
-      <th>customerFirst</th>
-      <th>customerLast</th>
-      <th>phone</th>
-      <th>email</th>
-      <th>street</th>
-      <th>city</th>
-      <th>state</th>
-      <th>zip</th>
-    </tr>
-    <tr>
-    	<td>1</td>
-      <td>Frank</td>
-      <td>Hill</td>
-      <td>9785672345</td>
-      <td>fh@gmail.com</td>
-      <td>123 Pleasant Ln</td>
-      <td>Mossville</td>
-      <td>AZ</td>
-      <td>78452</td>
-    </tr>
-    <tr>
-    	<td>2</td>
-      <td>Mike</td>
-      <td>North</td>
-      <td>1234567890</td>
-      <td>NorthM@yahoo.com</td>
-      <td>3 Jump Cir</td>
-      <td>Sleepy</td>
-      <td>NY</td>
-      <td>88675</td>
-    </tr>
-  </table>
+	</table>
+
 </div>
 
 <div>
@@ -44,7 +34,7 @@
 <div class="row">
 	<div class="columnLeft">
   	<h4>Add New Customer</h4>
-    <form>
+    <form action="/customers" method="post">
 			<label for="customerFirst">First name:</label><br>
   		<input type="text" id="customerFirst" name="customerFirst"><br>
   

@@ -2,16 +2,30 @@
 <div>
 <h2>Customer Preferences</h2>
 
+<table>
+	<tr>
+		<th>CustomerID</th>
+		<th>carID</th>
+	</tr>
+
+{{#each customerpreferences}}
+	<tr>
+		<td>{{this.customerID}}</td>
+		<td>{{this.bodyID}}</td>
+	</tr>
+{{/each}}
+</table>
+
 <div class="row">
 	<div class="columnLeft">
 		<h4>Add New Preference</h4>
-		<form>
+		<form id="addpreference" action="/customerpreferences" method="post">
 			<label for="customerID">Customer ID: </label><br>
-			<input type="text" id="car_id"><br>
+			<input type="text" id="customerID" name="customerID"><br>
 			<label for="bodyID">Body ID: </label><br>
-			<input type="text" id="bodyID"><br>
+			<input type="text" id="bodyID" name="bodyID"><br>
 			<br>
-			<input type="submit">  
+			<input type="submit" value="Submit">  
 		</form>
   </div>
   
