@@ -1,94 +1,84 @@
+<h2>Cars table</h2>
+<table>
+  <tr>
+    <th>carID</th>
+    <th>bodyID</th>
+    <th>make</th>
+    <th>model</th>
+    <th>year</th>
+    <th>mileage</th>
+    <th>available</th>
+  </tr>
+  {{#each cars}}
+  <tr>
+    <td>{{this.carID}}</td>
+    <td>{{this.bodyID}}</td>
+    <td>{{this.make}}</td>
+    <td>{{this.model}}</td>
+    <td>{{this.year}}</td>
+    <td>{{this.mileage}}</td>
+    <td>{{this.available}}</td>
+  </tr>
+  {{/each}}
+</table>
 
-<div id="cars_table">
-  <h2>Cars table</h2>
-  <table>
-    <tr>
-      <th>carID</th>
-      <th>bodyID</th>
-      <th>make</th>
-      <th>model</th>
-      <th>year</th>
-      <th>mileage</th>
-      <th>available</th>
-    </tr>
-    <tr>
-      <td>C001</td>
-      <td>B03</td>
-      <td>Honda</td>
-      <td>Civic</td>
-      <td>2015</td>
-      <td>85000</td>
-      <td>Yes</td>
-    </tr>
-  </table>
-</div>
-  
-<div id="customertable">
-  <h2>Customers Table</h2>
-  <table>
-  	<tr>
-    	<th>customerID</th>
-      <th>customerFirst</th>
-      <th>customerLast</th>
-      <th>phone</th>
-      <th>email</th>
-      <th>street</th>
-      <th>city</th>
-      <th>state</th>
-      <th>zip</th>
-    </tr>
-    <tr>
-    	<td>1</td>
-      <td>Frank</td>
-      <td>Hill</td>
-      <td>9785672345</td>
-      <td>fh@gmail.com</td>
-      <td>123 Pleasant Ln</td>
-      <td>Mossville</td>
-      <td>AZ</td>
-      <td>78452</td>
-    </tr>
-    <tr>
-    	<td>2</td>
-      <td>Mike</td>
-      <td>North</td>
-      <td>1234567890</td>
-      <td>NorthM@yahoo.com</td>
-      <td>3 Jump Cir</td>
-      <td>Sleepy</td>
-      <td>NY</td>
-      <td>88675</td>
-    </tr>
-  </table>
-</div>
+<h2>Customers table</h2>
+<table>
+		<tr>
+			<th>customerID</th>
+			<th>customerFirst</th>
+			<th>customerLast</th>
+			<th>phone</th>
+			<th>email</th>
+			<th>street</th>
+			<th>city</th>
+			<th>state</th>
+			<th>zip</th>
+		</tr>
+		{{#each customers}}
+		<tr>
+		<td>{{this.customerID}}</td>
+		<td>{{this.customerFirst}}</td>
+		<td>{{this.customerLast}}</td>
+		<td>{{this.phone}}</td>
+		<td>{{this.email}}</td>
+		<td>{{this.street}}</td>
+		<td>{{this.city}}</td>
+		<td>{{this.state}}</td>
+		<td>{{this.zip}}</td>
+		</tr>
+		{{/each}}
 
-<div id="table">
-  <h2>Rentals Table</h2>
-  <table>
-    <tr>
-      <th>carID</th>
-      <th>customerID</th>
-      <th>start</th>
-      <th>end</th>
-      <th>credit card</th>
-      <th>exp date</th>
-      <th>cvv</th>
-      <th>zip</th>
-      <th>total</th>
-    </tr>
-    <tr>
-      <td>C001</td>
-      <td>1</td>
-      <td>2021-10-05</td>
-      <td>2021-10-08</td>
-      <td>1234-5678-9012-3456</td>
-      <td>01/23</td>
-      <td>123</td>
-      <td>97331</td>
-      <td>$210</td>
-    </tr>
-  </table>
-</div>
+	</table>
+
+<h2>rentals</h2>
+<table>
+  <tr>
+    <th>car ID</th>
+    <th>Customer ID</th>
+    <th>start date</th>
+    <th>end date</th>
+    <th>credit card</th>
+    <th>expiration</th>
+    <th>CVV</th>
+    <th>zip code</th>
+    <th>total cost</th>
+  </tr>
+  {{#each rentals}}
+  <tr>
+    <td>{{this.carID}}</td>
+    <td>{{this.customerID}}</td>
+    <td>{{this.start}}</td>
+    <td>{{this.end}}</td>
+    <td>{{this.creditCardNum}}</td>
+    <td>{{this.expDate}}</td>
+    <td>{{this.cvv}}</td>
+    <td>{{this.cardZip}}</td>
+    <td>{{this.totalCost}}</td>
+  </tr>
+  {{/each}}
+</table>
+
 
 <div>
 <h2>Edit Rentals Table</h2>
@@ -96,25 +86,25 @@
 <div class="row">
 	<div class="columnLeft">
   	<h4>Add New Rental</h4>
-    <form>
+    <form id="addRental" action="/rentals", method="post">
 			<label for="car_id">Car ID: </label><br>
-      <input type="text" id="car_id"><br>
+      <input type="text" id="car_id" name="carID"><br>
       <label for="customer_id">Customer ID: </label><br>
-      <input type="text" id="customer_id"><br>
+      <input type="text" id="customer_id" name="customerID"><br>
       <label for="start">Start date: </label><br>
-      <input type="date" id="start" min="2021-11-01"><br>
+      <input type="date" id="start" name="start" min="2021-11-01"><br>
       <label for="end">End date: </label><br>
-      <input type="date" id="end"><br>
+      <input type="date" id="end" name="end"><br>
       <label for="credit_card">Credit card: </label><br>
-      <input type="text" id="credit_card"><br>
+      <input type="text" id="credit_card" name="creditCardNum"><br>
       <label for="exp_date">Expiration: </label><br>
-      <input type="text" id="exp_date"><br>
+      <input type="text" id="exp_date" name="expDate"><br>
       <label for="cvv">CVV: </label><br>
-      <input type="text" id="cvv"><br>
+      <input type="text" id="cvv" name="cvv"><br>
       <label for="zip">Zip code: </label><br>
-      <input type="number" min="00001" max="999950"><br>
+      <input type="number" id="zip" name="cardZip" min="00001" max="999950"><br>
       <label for="total">Total cost: </label><br>
-      <input type="number" id="total"><br><br>
+      <input type="number" id="total" name="totalCost"><br><br>
       <input type="submit">  
 		</form>
   </div>
