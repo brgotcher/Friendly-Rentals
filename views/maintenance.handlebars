@@ -9,13 +9,15 @@
       <th>date</th>
       <th>cost</th>
     </tr>
+    {{#each maintenance}}
     <tr>
-      <td>M0153</td>
-      <td>C005</td>
-      <td>Oil change</td>
-      <td>2021-10-16</td>
-      <td>$35</td>
+      <td>{{this.maintID}}</td>
+      <td>{{this.carID}}</td>
+      <td>{{this.service}}</td>
+      <td>{{this.date}}</td>
+      <td>{{this.mCost}}</td>
     </tr>
+    {{/each}}
   </table>
 </div>
 
@@ -52,23 +54,23 @@
   
   <div class="columnMiddle">
   	<h4>Add a maintenance record</h4>
-    <form>
+    <form id="addMaintenance" action="/maintenance" method="post">
 			<label for="add_car_id">Car ID: </label><br>
-      <input type="text" id="add_car_id"><br>
+      <input type="text" id="add_car_id" name="carID"><br>
       
-      <label for="add_type">Maintenance type: </label><br>
-      <select name="add_type" id="add_type">
-        <option value="oil">Oil change</option>
-        <option value="tires">Tire service</option>
+      <label for="service">Maintenance type: </label><br>
+      <select name="service" id="service">
+        <option value="oil change">Oil change</option>
+        <option value="tire service">Tire service</option>
         <option value="collision">Collision repairs</option>
         <option value="battery">Battery service</option>
       </select><br>
       
       <label for="cost">Cost: </label><br>
-      <input type="number" id="cost"><br>
+      <input type="number" id="cost" name="mCost"><br>
       
       <label for="add_date">Maintenance date:</label><br>
-      <input type="date" id="add_date" min="2015-01-01" max="2021-11-01"><br><br>
+      <input type="date" id="add_date" name="date" min="2015-01-01" max="2021-11-01"><br><br>
       <input type="submit">
     </form>
   </div>
