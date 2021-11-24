@@ -16,6 +16,7 @@
       <td>{{this.service}}</td>
       <td>{{this.date}}</td>
       <td>{{this.mCost}}</td>
+      <td><input type="submit" value="Delete"></td>
     </tr>
     {{/each}}
   </table>
@@ -48,7 +49,7 @@
       <input type="date" id="end" min="2015-01-01" max="2021-11-01"><br>
       
       <br>
-      <input type="submit">
+      <input type="submit" value="Search">
 		</form>
   </div>
   
@@ -56,7 +57,7 @@
   	<h4>Add a maintenance record</h4>
     <form id="addMaintenance" action="/maintenance" method="post">
 			<label for="add_car_id">Car ID: </label><br>
-      <input type="text" id="add_car_id" name="carID"><br>
+      <input type="text" id="add_car_id" name="carID" required><br>
       
       <label for="service">Maintenance type: </label><br>
       <select name="service" id="service">
@@ -67,11 +68,11 @@
       </select><br>
       
       <label for="cost">Cost: </label><br>
-      <input type="number" id="cost" name="mCost"><br>
+      <input type="number" id="cost" name="mCost" required><br>
       
       <label for="add_date">Maintenance date:</label><br>
       <input type="date" id="add_date" name="date" min="2015-01-01" max="2021-11-01"><br><br>
-      <input type="submit">
+      <input type="submit" value="Add">
     </form>
   </div>
 

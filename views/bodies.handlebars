@@ -11,6 +11,7 @@
     <td>{{this.bodyID}}</td>
     <td>{{this.type}}</td>
     <td>{{this.ratePerDay}}</td>
+    <td><input type="submit" value="Delete"></td>
   </tr>
 
   {{/each}}
@@ -28,9 +29,9 @@
 			<label for="bodyName">Name: </label><br>
       <input type="text" id="bodyName" name="type"><br>
       <label for="rate">Daily rate: </label><br>
-      <input type="text" id="rate" name="ratePerDay"><br>
+      <input type="text" id="rate" name="ratePerDay" required><br>
       <br>
-      <input type="submit">  
+      <input type="submit" value="Add">  
 		</form>
   </div>
   
@@ -45,9 +46,9 @@
         <option value="van">Van</option>
       </select><br>
       <label for="new_rate">New rate: </label><br>
-      <input type="number" id="new_rate"><br>
+      <input type="number" id="new_rate" required><br>
       <br>
-      <input type="submit">
+      <input type="submit" value="Change">
     </form>
   </div>
 

@@ -12,6 +12,7 @@
 	<tr>
 		<td>{{this.customerID}}</td>
 		<td>{{this.bodyID}}</td>
+		<td><input type="submit" value="Delete"></td>
 	</tr>
 {{/each}}
 </table>
@@ -33,9 +34,9 @@
   	<h4>Search preferences by customer</h4>
     <form>
 		<label for="customer">Customer ID: </label><br>
-		<input type="text" id="customer"><br>
+		<input type="text" id="customer" required><br>
 		<br>
-		<input type="submit">
+		<input type="submit" value="Search">
     </form>
   </div>
 
