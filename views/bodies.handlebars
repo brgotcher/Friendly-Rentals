@@ -6,11 +6,14 @@
     <th>type</th>
     <th>rate</th>
   </tr>
+  {{#each bodies}}
   <tr>
-    <td>B01</td>
-    <td>Sedan</td>
-    <td>$70</td>
+    <td>{{this.bodyID}}</td>
+    <td>{{this.type}}</td>
+    <td>{{this.ratePerDay}}</td>
   </tr>
+
+  {{/each}}
 </table>
   
 </div>
@@ -21,11 +24,11 @@
 <div class="row">
 	<div class="columnLeft">
   	<h4>Add new body type: </h4>
-    <form>
+    <form id="addBody" action="/bodies" method="post">
 			<label for="bodyName">Name: </label><br>
-      <input type="text" id="bodyName"><br>
+      <input type="text" id="bodyName" name="type"><br>
       <label for="rate">Daily rate: </label><br>
-      <input type="text" id="rate"><br>
+      <input type="text" id="rate" name="ratePerDay"><br>
       <br>
       <input type="submit">  
 		</form>
