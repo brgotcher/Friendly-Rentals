@@ -20,12 +20,14 @@ const customerpreferences = require('./customerpreferences.js');
 const cars = require('./cars.js');
 const customers = require('./customers.js');
 const bodies = require('./bodies.js');
-const rentals = require('./rentals');
+const rentals = require('./rentals.js');
+const maintenance = require('./maintenance.js');
 app.use(customerpreferences);
 app.use(cars);
 app.use(customers);
 app.use(bodies);
 app.use(rentals);
+app.use(maintenance);
 
 app.get('/', function (req, res) {
   console.log("test");
