@@ -3,6 +3,20 @@ var router = express.Router();
 router.get('/rentals', function(req, res){
 	var context = {};
 	var mysql = req.app.get('mysql');
+	mysql.pool.query("SELECT * FROM cars", function (error, results, fields) {
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		}
+		context.cars = results;
+	});
+	mysql.pool.query("SELECT * FROM customers", function (error, results, fields) {
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		}
+		context.customers = results;
+	});
 	mysql.pool.query("SELECT * FROM rentals", function(error, results, fields) {
 		if(error){
 			res.write(JSON.stringify(error));
@@ -32,6 +46,8 @@ router.post('/rentals', function(req, res){
 		}
 	});
 });
+
+
 
 
 module.exports = router;
