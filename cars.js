@@ -17,8 +17,8 @@ router.get('/cars', function(req, res){
 
 function getCarsByBodyType(req, res, mysql, context, complete) {
 	console.log("GETCARSBYBODYTYPE");
-	console.log(mysql.pool.escape(req.params.s))
-	var searchItems = mysql.pool.escape(req.params.s);
+	console.log(req.params.s);
+	var searchItems = req.params.s;
 	var searchArr = searchItems.split(',');
 	for (var i = 0; i < searchArr.length; i++) {
 		console.log(searchArr[i]);
@@ -40,8 +40,29 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	})
 }
 
-router.get('/cars/search/:s', function(req, res){
+function getCarsByMake(req, res, mysql, context, complete) {
+	console.log("GETCARSBYMAKE");
+	console.log(req.params.s);
+	var searchItems = req.params.s;
+	var searchArr = searchItems.split(',');
+	var query = "SELECT * FROM cars WHERE make = ''";
+	for (var i = 0; i < searchArr.length; i++) {
+		query += " OR make = '" + searchArr[i] + "'";
+	}
+	console.log(query);
+	mysql.pool.query(query, function(error, results, fields) {
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		}
+		context.cars = results;
+		complete();
+	})
+}
+
+router.get('/cars/searchByBody/:s', function(req, res){
 	console.log("SEARCH");
+	console.log(req.params.s);
 	var callbackCount = 0;
 	var context = {};
 	context.jsscripts = ["searchcars.js"];
@@ -50,6 +71,22 @@ router.get('/cars/search/:s', function(req, res){
 	function complete(){
 		callbackCount++;
 		if(callbackCount >= 1){
+			console.log(context);
+			res.render("cars", context);
+		}
+	}
+});
+
+router.get('/cars/searchByMake/:s', function(req, res){
+	console.log(req.params.s);
+	var callbackCount = 0;
+	var context = {};
+	context.jsscripts = ["searchcars.js"];
+	var mysql = req.app.get('mysql');
+	getCarsByMake(req, res, mysql, context, complete);
+	function complete(){
+		callbackCount++;
+		if (callbackCount >= 1){
 			console.log(context);
 			res.render("cars", context);
 		}

@@ -7,5 +7,17 @@ function searchCarsByBodyType() {
         if (checkbox.checked) checked.push(checkbox.value);
     }
     qString = checked.join();
-    window.location = '/cars/search/' + qString;
+    window.location = '/cars/searchByBody/' + qString;
+}
+
+function searchCarsByMake() {
+    var makesDiv = document.getElementById("searchMakes");
+    var makeChecks = makesDiv.querySelectorAll("input[type=checkbox]");
+    var checked = [];
+    for (var i = 0; i < makeChecks.length;i++) {
+        var checkbox = makeChecks[i];
+        if (checkbox.checked) checked.push(checkbox.value);
+    }
+    qString = checked.join();
+    window.location = '/cars/searchByMake/' + qString;
 }
