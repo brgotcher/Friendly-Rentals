@@ -36,7 +36,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	})
 }
 
-router.get('/search/:s', function(req, res){
+router.get('/cars/search/:s', function(req, res){
 	console.log("SEARCH");
 	var callbackCount = 0;
 	var context = {};
