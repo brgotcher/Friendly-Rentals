@@ -17,6 +17,7 @@ router.get('/cars', function(req, res){
 
 function getCarsByBodyType(req, res, mysql, context, complete) {
 	console.log("GETCARSBYBODYTYPE");
+	console.log(mysql.pool.escape(req.params.s))
 	var searchItems = mysql.pool.escape(req.params.s);
 	for (var i = 0; i < searchItems.length; i++) {
 		var num = getID(searchItems[i]);
