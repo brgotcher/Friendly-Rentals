@@ -16,6 +16,7 @@ router.get('/cars', function(req, res){
 });
 
 function getCarsByBodyType(req, res, mysql, context, complete) {
+	console.log("GETCARSBYBODYTYPE");
 	var searchItems = mysql.pool.escape(req.params.s);
 	for (var i = 0; i < searchItems.length; i++) {
 		var num = getID(searchItems[i]);
@@ -36,6 +37,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 }
 
 router.get('/search/:s', function(req, res){
+	console.log("SEARCH");
 	var callbackCount = 0;
 	var context = {};
 	context.jsscripts = ["searchcars.js"];
