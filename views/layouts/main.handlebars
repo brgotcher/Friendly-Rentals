@@ -2,7 +2,9 @@
 <head>
 	<title>Friendly Rentals</title>
 	<link rel="stylesheet" href="/css/style.css">
-
+	{{#each jsscripts}}
+	<script src="/{{this}}"></script>
+	{{/each}}
 </head>
 <body>
 	<h2>Friendly Rentals</h2>

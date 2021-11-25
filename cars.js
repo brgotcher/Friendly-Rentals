@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+
 router.get('/cars', function(req, res){
 	var context = {};
 	var mysql = req.app.get('mysql');
+	context.jsscripts = ["searchcars.js"]
 	mysql.pool.query("SELECT * FROM cars", function(error, results, fields) {
 		if(error){
 			res.write(JSON.stringify(error));
