@@ -75,6 +75,7 @@ router.post('/cars', function(req, res){
 
 function getID(body) {
 	console.log("getID param: " + body);
+	console.log(typeof(body));
 	var id;
 	switch(body) {
 		case "sedan":
