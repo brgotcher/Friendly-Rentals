@@ -22,7 +22,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	var searchArr = searchItems.split(',');
 	for (var i = 0; i < searchArr.length; i++) {
 		var num = getID(searchArr[i]);
-		searchItems[i] = num;
+		searchArr[i] = num;
 	}
 	var query = "SELECT * FROM  cars WHERE bodyID = ''";
 	for (var i = 0; i < searchArr.length; i++) {
