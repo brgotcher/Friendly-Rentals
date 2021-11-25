@@ -43,9 +43,9 @@ router.get('/search/:s', function(req, res){
 	context.jsscripts = ["searchcars.js"];
 	var mysql = req.app.get('mysql');
 	getCarsByBodyType(req, res, mysql, context, complete);
-	function copmlete(){
+	function complete(){
 		callbackCount++;
-		if(callbackCount >= 2){
+		if(callbackCount >= 1){
 			res.render("people", context);
 		}
 	}
