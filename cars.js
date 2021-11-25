@@ -28,6 +28,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	for (var i = 0; i < searchArr.length; i++) {
 		query += "OR bodyID = " + searchArr[i];
 	}
+	console.log(query);
 	mysql.pool.query(query, function(error, results, fields) {
 		if(error){
 			res.write(JSON.stringify(error));
@@ -48,6 +49,7 @@ router.get('/cars/search/:s', function(req, res){
 	function complete(){
 		callbackCount++;
 		if(callbackCount >= 1){
+			console.log(context);
 			res.render("cars", context);
 		}
 	}
