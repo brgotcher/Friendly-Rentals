@@ -52,8 +52,9 @@
 <div class="row">
 	<div class="columnLeft">
   	<h4>Search cars: </h4>
-    <form>
-			<p>Body Type:</p>
+    <form id="searchCars">
+      <div id="searchBodies">
+			  <p>Body Type:</p>
         <input type="checkbox" name="body_type" value="sedan" id="sedan">
         <label for="sedan">Sedan</label>
         <input type="checkbox" name="body_type" value="suv" id="suv">
@@ -64,6 +65,8 @@
         <label for="van">Van</label>
         <input type="checkbox" name="body_type" value="none" id="none">
         <label for="none">None</label>
+        <input type="button" value="Search" onclick="searchCarsByBodyType()">
+      </div>
         
         <p>Make: </p>
         <input type="checkbox" name="make" value="chevrolet" id="chevrolet">

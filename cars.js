@@ -13,6 +13,40 @@ router.get('/cars', function(req, res){
 	});
 });
 
+function getCarsByBodyType(req, res, mysql, context, complete) {
+	var searchItems = mysql.pool.escape(req.params.s);
+	for (var i = 0; i < searchItems.length; i++) {
+		var num = getID(searchItems[i]);
+		searchItems[i] = num;
+	}
+	var query = "SELECT * FROM  cars WHERE bodyID = '' ";
+	for (var i = 0; i < searchItems.length; i++) {
+		query += "OR bodyID = " + searchItems[i];
+	}
+	mysql.pool.query(query, function(error, results, fields) {
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		}
+		context.cars = results;
+		complete();
+	})
+}
+
+router.get('/search/:s', function(req, res){
+	var callbackCount = 0;
+	var context = {};
+	context.jsscripts = ["searchcars.js"];
+	var mysql = req.app.get('mysql');
+	getCarsByBodyType(req, res, mysql, context, complete);
+	function copmlete(){
+		callbackCount++;
+		if(callbackCount >= 2){
+			res.render("people", context);
+		}
+	}
+});
+
 router.post('/cars', function(req, res){
 	var mysql = req.app.get('mysql');
 
@@ -27,6 +61,8 @@ router.post('/cars', function(req, res){
 		}
 	});
 });
+
+
 
 function getID(body) {
 	var id;
