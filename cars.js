@@ -21,6 +21,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	var searchItems = mysql.pool.escape(req.params.s);
 	var searchArr = searchItems.split(',');
 	for (var i = 0; i < searchArr.length; i++) {
+		console.log(searchArr[i]);
 		var num = getID(searchArr[i]);
 		searchArr[i] = num;
 	}
@@ -73,6 +74,7 @@ router.post('/cars', function(req, res){
 
 
 function getID(body) {
+	console.log("getID param: " + body);
 	var id;
 	switch(body) {
 		case "sedan":
@@ -90,6 +92,7 @@ function getID(body) {
 		default:
 			id = null;
 	}
+	console.log("After switch: "+ id);
 	return id;
 }
 
