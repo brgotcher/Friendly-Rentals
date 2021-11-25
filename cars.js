@@ -19,13 +19,14 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	console.log("GETCARSBYBODYTYPE");
 	console.log(mysql.pool.escape(req.params.s))
 	var searchItems = mysql.pool.escape(req.params.s);
-	for (var i = 0; i < searchItems.length; i++) {
-		var num = getID(searchItems[i]);
+	var searchArr = searchItems.split(',');
+	for (var i = 0; i < searchArr.length; i++) {
+		var num = getID(searchArr[i]);
 		searchItems[i] = num;
 	}
 	var query = "SELECT * FROM  cars WHERE bodyID = '' ";
-	for (var i = 0; i < searchItems.length; i++) {
-		query += "OR bodyID = " + searchItems[i];
+	for (var i = 0; i < searchArr.length; i++) {
+		query += "OR bodyID = " + searchArr[i];
 	}
 	mysql.pool.query(query, function(error, results, fields) {
 		if(error){
