@@ -46,7 +46,7 @@ router.get('/cars/search/:s', function(req, res){
 	function complete(){
 		callbackCount++;
 		if(callbackCount >= 1){
-			res.render("people", context);
+			res.render("cars", context);
 		}
 	}
 });
