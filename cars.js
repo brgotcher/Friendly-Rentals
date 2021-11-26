@@ -105,9 +105,10 @@ router.get('/cars/searchByMake/:s', function(req, res){
 
 router.post('/cars', function(req, res){
 	var mysql = req.app.get('mysql');
-
-	var sql = "INSERT INTO cars (bodyID, make, model, year, mileage) VALUES (?, ?, ?, ?, ?)";
-	var inserts = [getID(req.body.body), req.body.make, req.body.model, req.body.year, req.body.mileage];
+	body = req.body.body;
+	var sql = "INSERT INTO cars (bodyID, make, model, year, mileage) VALUES ((SELECT bodyID FROM bodies WHERE type='" + body + "'), ?, ?, ?, ?);";
+	var inserts = [req.body.make, req.body.model, req.body.year, req.body.mileage];
+	console.log(inserts);
 	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
 		if(error){
 			res.write(JSON.stringify(error));
@@ -135,29 +136,27 @@ router.delete('/cars/:carID', function(req, res){
 	});
 });
 
-
-function getID(body) {
-	console.log("getID param: " + body);
-	console.log(typeof(body));
-	var id;
-	switch(body) {
-		case "sedan":
-			id = 1;
-			break;
-		case "van":
-			id = 2;
-			break;
-		case "truck":
-			id = 3;
-			break;
-		case "suv":
-			id = 4;
-			break;
-		default:
-			id = null;
-	}
-	console.log("After switch: "+ id);
-	return id;
-}
+//function getID(body, function(req, res){
+	// console.log("getID param: " + body);
+	// console.log(typeof(body));
+	// var id;
+	// switch(body) {
+	// 	case "sedan":
+	// 		id = 1;
+	// 		break;
+	// 	case "van":
+	// 		id = 2;
+	// 		break;
+	// 	case "truck":
+	// 		id = 3;
+	// 		break;
+	// 	case "suv":
+	// 		id = 4;
+	// 		break;
+	// 	default:
+	// 		id = null;
+	// }
+	// console.log("After switch: "+ id);
+	// return id;
 
 module.exports = router;
