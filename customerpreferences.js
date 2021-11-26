@@ -29,7 +29,8 @@
 		});
 	});
 
-	router.delete('/customerpreferemces/:ids', function(req, res){
+	router.delete('/customerpreferences/:ids', function(req, res){
+		console.log("delete customer preferences")
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM preferences WHERE carID = ? AND customerID = ?";
 		var inserts = [req.params.carID];
