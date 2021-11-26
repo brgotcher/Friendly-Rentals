@@ -34,7 +34,7 @@
 		console.log("delete customer preferences")
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM preferences WHERE carID = ? AND customerID = ?";
-		var inserts = [req.params.carID];
+		var inserts = [req.params.s];
 		console.log(inserts);
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields){
 			if(error){
