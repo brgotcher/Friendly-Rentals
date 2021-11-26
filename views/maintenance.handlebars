@@ -16,7 +16,7 @@
       <td>{{this.service}}</td>
       <td>{{this.date}}</td>
       <td>{{this.mCost}}</td>
-      <td><input type="submit" value="Delete"></td>
+      <td><button onclick="deleteMaintenance({{this.maintID}})">Delete</button></td>
     </tr>
     {{/each}}
   </table>
