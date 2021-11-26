@@ -78,6 +78,7 @@ INSERT INTO `cars` (`carID`, `bodyID`, `make`, `model`, `year`, `mileage`, `avai
 -- 
 DROP TABLE IF EXISTS `rentals`;
 CREATE TABLE `rentals` (
+	`rentalID` int(11) NOT NULL AUTO_INCREMENT,
 	`carID` INT(11) NOT NULL,
 	`customerID` INT(11) NOT NULL,
 	`start` DATETIME NOT NULL,
@@ -87,6 +88,7 @@ CREATE TABLE `rentals` (
 	`cvv` INT(11) NOT NULL,
 	`cardZip` VARCHAR(255) NOT NULL,
 	`totalCost` DECIMAL(9, 2) NOT NULL,
+	PRIMARY KEY (`rentalID`),
 	CONSTRAINT `rentals_carID_fk` FOREIGN KEY (`carID`) REFERENCES `cars` (`carID`) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT `rentals_customerID_fk` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,11 +96,11 @@ CREATE TABLE `rentals` (
 -- 
 -- Data for Rentals table
 -- 
-INSERT INTO `rentals` (`carID`, `customerID`, `start`, `end`, `creditCardNum`, `expDate`, `cvv`, `cardZip`, `totalCost`) VALUES
-(1, 1, '2020-12-23 11:15:21', '2020-12-26 11:15:21', 8993836726471988, '2024-01-01', 357, 76231, 102.65),
-(2, 2, '2021-02-15 09:09:56', '2021-02-16 09:09:56', 1211563378661332, '2026-06-01', 571, 89067, 65.45),
-(3, 3, '2021-04-01 01:29:34', '2021-04-03 01:29:34', 9090567478789013, '2021-03-01', 819, 12128, 189.95),
-(4, 4, '2021-06-06 06:59:18', '2021-06-08 06:59:18', 6333214590802021, '2022-10-01', 314, 34346, 151.44);
+INSERT INTO `rentals` (`rentalID`, `carID`, `customerID`, `start`, `end`, `creditCardNum`, `expDate`, `cvv`, `cardZip`, `totalCost`) VALUES
+(1, 1, 1, '2020-12-23 11:15:21', '2020-12-26 11:15:21', 8993836726471988, '2024-01-01', 357, 76231, 102.65),
+(2, 2, 2, '2021-02-15 09:09:56', '2021-02-16 09:09:56', 1211563378661332, '2026-06-01', 571, 89067, 65.45),
+(3, 3, 3, '2021-04-01 01:29:34', '2021-04-03 01:29:34', 9090567478789013, '2021-03-01', 819, 12128, 189.95),
+(4, 4, 4, '2021-06-06 06:59:18', '2021-06-08 06:59:18', 6333214590802021, '2022-10-01', 314, 34346, 151.44);
 
 -- 
 -- Creates Maintenance table
