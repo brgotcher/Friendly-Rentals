@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 router.get('/rentals', function(req, res){
 	var context = {};
+	context.jsscripts=["deleterental.js"];
 	var mysql = req.app.get('mysql');
 	mysql.pool.query("SELECT * FROM cars", function (error, results, fields) {
 		if(error){
@@ -50,7 +51,7 @@ router.post('/rentals', function(req, res){
 router.delete('/rentals/:rentalID', function(req, res){
 	var mysql = req.app.get('mysql');
 	var sql = "DELETE FROM rentals WHERE rentalID = ?";
-	var inserts = [req.params.carID];
+	var inserts = [req.params.rentalID];
 	sql = mysql.pool.query(sql, inserts, function(error, results, fields){
 		if(error){
 			res.write(JSON.stringify(error));

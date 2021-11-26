@@ -18,7 +18,6 @@
     <td>{{this.year}}</td>
     <td>{{this.mileage}}</td>
     <td>{{this.available}}</td>
-    <td><button onclick="deleteRental({{this.rentalID}})">Delete</button></td>
   </tr>
   {{/each}}
 </table>
@@ -76,7 +75,7 @@
     <td>{{this.cvv}}</td>
     <td>{{this.cardZip}}</td>
     <td>{{this.totalCost}}</td>
-    <td><input type="submit" value="Delete"></td>
+    <td><button onclick="deleteRental({{this.rentalID}})">Delete</button></td>
   </tr>
   {{/each}}
 </table>
