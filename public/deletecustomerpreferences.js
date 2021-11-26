@@ -3,7 +3,7 @@
 
 function deleteCustomerPreferences(customerID, carID){
     $.ajax({
-        url: '/customerpreferences/' + customerID + ',' + carID,
+        url: '/customerpreferences/' + customerID + '&' + carID,
         type: 'DELETE',
         success: function(result){
             window.location.reload(true);
