@@ -4,6 +4,7 @@
 
 	router.get('/customerpreferences', function(req,res){
 		var context = {};
+		context.jsscripts = ["deletecustomerpreferences.js"]
 		var mysql = req.app.get('mysql');
 		mysql.pool.query("SELECT * FROM preferences", function(error, results, fields) {
 			if(error){
