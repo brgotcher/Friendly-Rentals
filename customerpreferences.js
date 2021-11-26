@@ -29,4 +29,20 @@
 		});
 	});
 
+	router.delete('/customerpreferemces/:ids', function(req, res){
+		var mysql = req.app.get('mysql');
+		var sql = "DELETE FROM preferences WHERE carID = ? AND customerID = ?";
+		var inserts = [req.params.carID];
+		console.log(inserts);
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+			if(error){
+				res.write(JSON.stringify(error));
+				res.end();
+			} else {
+				// res.redirect('/cars');
+				res.render("customerpreferences");
+			}
+		});
+	});
+
 	module.exports = router;
