@@ -11,7 +11,7 @@
     <td>{{this.bodyID}}</td>
     <td>{{this.type}}</td>
     <td>{{this.ratePerDay}}</td>
-    <td><input type="submit" value="Delete"></td>
+    <td><button onclick="deleteBody({{this.bodyID}})">Delete</button></td>
   </tr>
 
   {{/each}}
