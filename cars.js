@@ -15,6 +15,8 @@ router.get('/cars', function(req, res){
 	});
 });
 
+// helper function for searching cars by body type
+
 function getCarsByBodyType(req, res, mysql, context, complete) {
 	console.log("GETCARSBYBODYTYPE");
 	console.log(req.params.s);
@@ -40,6 +42,8 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	})
 }
 
+// helper function for searching cars by body type
+
 function getCarsByMake(req, res, mysql, context, complete) {
 	console.log("GETCARSBYMAKE");
 	console.log(req.params.s);
@@ -60,6 +64,8 @@ function getCarsByMake(req, res, mysql, context, complete) {
 	})
 }
 
+//search cars by body type
+
 router.get('/cars/searchByBody/:s', function(req, res){
 	console.log("SEARCH");
 	console.log(req.params.s);
@@ -77,6 +83,8 @@ router.get('/cars/searchByBody/:s', function(req, res){
 	}
 });
 
+// search cars by make
+
 router.get('/cars/searchByMake/:s', function(req, res){
 	console.log(req.params.s);
 	var callbackCount = 0;
@@ -92,6 +100,8 @@ router.get('/cars/searchByMake/:s', function(req, res){
 		}
 	}
 });
+
+// add route for cars
 
 router.post('/cars', function(req, res){
 	var mysql = req.app.get('mysql');
@@ -119,7 +129,8 @@ router.delete('/cars/:carID', function(req, res){
 			res.write(JSON.stringify(error));
 			res.end();
 		} else {
-			res.redirect('/cars');
+			// res.redirect('/cars');
+			res.render('/cars');
 		}
 	});
 });
