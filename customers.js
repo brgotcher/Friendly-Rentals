@@ -41,7 +41,8 @@ router.delete('/customers/:customerID', function(req, res){
 			res.write(JSON.stringify(error));
 			res.end();
 		} else {
-			res.redirect('/customers');
+			// res.redirect('/customers');
+			res.render("customers");
 		}
 	});
 });

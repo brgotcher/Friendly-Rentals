@@ -41,7 +41,8 @@ router.delete('/bodies/:bodyID', function(req, res){
 			res.write(JSON.stringify(error));
 			res.end();
 		} else {
-			res.redirect('/cars');
+			// res.redirect('/cars');
+			res.render("bodies");
 		}
 	});
 });
