@@ -47,6 +47,20 @@ router.post('/rentals', function(req, res){
 	});
 });
 
+router.delete('/rentals/:rentalID', function(req, res){
+	var mysql = req.app.get('mysql');
+	var sql = "DELETE FROM rentals WHERE rentalID = ?";
+	var inserts = [req.params.carID];
+	sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		} else {
+			res.render("rentals");
+		}
+	});
+});
+
 
 
 
