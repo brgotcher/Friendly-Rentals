@@ -36,7 +36,9 @@
 		var sql = "DELETE FROM preferences WHERE carID = ? AND customerID = ?";
 		var inserts = [req.params.ids];
 		inserts = inserts[0].split('&');
-		//console.log(ids);
+		inserts[0] = Number(inserts[0]);
+		inserts[1] = Number(inserts[1]);
+
 		console.log(inserts);
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields){
 			if(error){
