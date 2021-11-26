@@ -9,7 +9,7 @@
     <th>available</th>
   </tr>
   {{#each cars}}
-  <tr>
+  <tr id="row{{this.carID}}">
     <td>{{this.carID}}</td>
     <td>{{this.bodyID}}</td>
     <td>{{this.make}}</td>
@@ -17,6 +17,7 @@
     <td>{{this.year}}</td>
     <td>{{this.mileage}}</td>
     <td>{{this.available}}</td>
+    <td><button id="updateButton{{this.carID}}" onclick="updateCar({{this.carID}})">Update</button></td>
     <td><button onclick="deleteCar({{this.carID}})">Delete</button></td>
   </tr>
   {{/each}}

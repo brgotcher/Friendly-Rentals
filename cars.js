@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/cars', function(req, res){
 	var context = {};
 	var mysql = req.app.get('mysql');
-	context.jsscripts = ["searchcars.js", "deletecar.js"]
+	context.jsscripts = ["searchcars.js", "deletecar.js", "updatecar.js"];
 	mysql.pool.query("SELECT * FROM cars", function(error, results, fields) {
 		if(error){
 			res.write(JSON.stringify(error));
@@ -118,6 +118,26 @@ router.post('/cars', function(req, res){
 		}
 	});
 });
+
+// update route for cars
+
+router.put('/cars/:carID', function(req, res){
+	var mysql = req.app.get('mysql');
+	console.log(req.body);
+	var sql = "UPDATE cars SET bodyID=?, make=?, model=?, year=?, mileage=?, available=? WHERE carID=?";
+	var inserts = [req.body.bodyID, req.body.make, req.body.model, req.body.year, req.body.mileage, req.body.available, req.body.carID];
+	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+		if(error){
+			console.log(error);
+			res.write(JSON.stringify(error));
+			res.end();
+		} else {
+			//res.status(200);
+			res.render("cars");
+			//res.end();
+		}
+	})
+})
 
 // Delete route for Cars
 
