@@ -130,7 +130,7 @@ router.delete('/cars/:carID', function(req, res){
 			res.end();
 		} else {
 			// res.redirect('/cars');
-			res.render('/cars');
+			res.render("cars");
 		}
 	});
 });
