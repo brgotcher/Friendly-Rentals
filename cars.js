@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/cars', function(req, res){
 	var context = {};
 	var mysql = req.app.get('mysql');
-	context.jsscripts = ["searchcars.js"]
+	context.jsscripts = ["searchcars.js", "deletecar.js"]
 	mysql.pool.query("SELECT * FROM cars", function(error, results, fields) {
 		if(error){
 			res.write(JSON.stringify(error));
@@ -108,6 +108,21 @@ router.post('/cars', function(req, res){
 	});
 });
 
+// Delete route for Cars
+
+router.delete('/cars/:carID', function(req, res){
+	var mysql = req.app.get('mysql');
+	var sql = "DELETE FROM cars WHERE carID = ?";
+	var inserts = [req.params.carID];
+	sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+		if(error){
+			res.write(JSON.stringify(error));
+			res.end();
+		} else {
+			res.redirect('/cars');
+		}
+	});
+});
 
 
 function getID(body) {
