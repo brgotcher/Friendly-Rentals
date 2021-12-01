@@ -7,10 +7,11 @@
     <th>rate</th>
   </tr>
   {{#each bodies}}
-  <tr>
+  <tr id="row{{this.bodyID}}">
     <td>{{this.bodyID}}</td>
     <td>{{this.type}}</td>
     <td>{{this.ratePerDay}}</td>
+    <td><button id="updateButton{{this.bodyID}}" onclick="updateBody({{this.bodyID}})">Update</button></td>
     <td><button onclick="deleteBody({{this.bodyID}})">Delete</button></td>
   </tr>
 
