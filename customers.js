@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/customers', function(req, res){
 	var context = {};
-	context.jsscripts = ["deletecustomer.js"];
+	context.jsscripts = ["deletecustomer.js", "updatecustomer.js"];
 	var mysql = req.app.get('mysql');
 	mysql.pool.query("SELECT * FROM customers", function(error, results, fields) {
 		if(error){
@@ -29,6 +29,26 @@ router.post('/customers', function(req, res){
 		}
 	});
 });
+
+// update route for customerss
+
+router.put('/customers/:customerID', function(req, res){
+	var mysql = req.app.get('mysql');
+	console.log(req.body);
+	var sql = "UPDATE customers SET customerFirst=?, customerLast=?, phone=?, email=?, street=?, city=?, state=?, zip=? WHERE carID=?";
+	var inserts = [req.body.customerFirst, req.body.customerLast, req.body.phone, req.body.email, req.body.street, req.body.city, req.body.state, req.body.zip, req.body.customerID];
+	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+		if(error){
+			console.log(error);
+			res.write(JSON.stringify(error));
+			res.end();
+		} else {
+			//res.status(200);
+			res.render("customers");
+			//res.end();
+		}
+	})
+})
 
 // router to work with the delete button and deletecustomer.js
 
