@@ -27,12 +27,18 @@ function updateCar(id) {
 
 // send the updated information to the database when the user hits the save button
 function saveCarUpdate(id) {
-	var row, cel, bodyID, make, model, year, mileage, available;
+	var row, cel;
+	var bodyID = {val: 0},
+		make = {val: 0},
+		model = {val: 0},
+		year = {val: 0},
+		mileage = {val: 0},
+		available = {val: 0};
 	var attributes = [bodyID, make, model, year, mileage, available];
 	row = document.getElementById("row" + id);
 	cel = row.firstChild.nextSibling.nextElementSibling;
 	for (var i = 0; i < attributes.length; i++) {
-		attributes[i] = cel.firstElementChild.value;
+		attributes[i].val = cel.firstElementChild.value;
 		cel = cel.nextElementSibling;
 	}
 	// var row = document.getElementById("row" + id);
