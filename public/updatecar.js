@@ -28,6 +28,7 @@ function updateCar(id) {
 // send the updated information to the database when the user hits the save button
 function saveCarUpdate(id) {
 	var row, cel;
+	// set up attributes as objects in an array so they can be updated within the loop
 	var bodyID = {val: 0},
 		make = {val: 0},
 		model = {val: 0},
@@ -37,6 +38,7 @@ function saveCarUpdate(id) {
 	var attributes = [bodyID, make, model, year, mileage, available];
 	row = document.getElementById("row" + id);
 	cel = row.firstChild.nextSibling.nextElementSibling;
+	// iterate through each field and save the values
 	for (var i = 0; i < attributes.length; i++) {
 		attributes[i].val = cel.firstElementChild.value;
 		cel = cel.nextElementSibling;
@@ -55,6 +57,7 @@ function saveCarUpdate(id) {
 	// cel = cel.nextElementSibling;
 	// var available = cel.firstElementChild.value;
 
+	//send the values to the db
 	$.ajax({
         url: '/cars/' + id,
         type: 'PUT',
