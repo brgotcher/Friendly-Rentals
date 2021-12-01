@@ -5,7 +5,7 @@ function updateBody(id) {
 	var cel = row.firstChild.nextSibling;
 	//iterate the cells in the row, copy the content, delete and replace with a text input, replace
 	//content as value
-	for (var i = 0; i < 6; i++) {
+	for (var i = 0; i < 2; i++) {
 		cel = cel.nextElementSibling;
 		var content = cel.textContent;
 		cel.removeChild(cel.firstChild);
