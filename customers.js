@@ -35,7 +35,7 @@ router.post('/customers', function(req, res){
 router.put('/customers/:customerID', function(req, res){
 	var mysql = req.app.get('mysql');
 	console.log(req.body);
-	var sql = "UPDATE customers SET customerFirst=?, customerLast=?, phone=?, email=?, street=?, city=?, state=?, zip=? WHERE carID=?";
+	var sql = "UPDATE customers SET customerFirst=?, customerLast=?, phone=?, email=?, street=?, city=?, state=?, zip=? WHERE customerID=?";
 	var inserts = [req.body.customerFirst, req.body.customerLast, req.body.phone, req.body.email, req.body.street, req.body.city, req.body.state, req.body.zip, req.body.customerID];
 	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
 		if(error){
