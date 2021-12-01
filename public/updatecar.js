@@ -58,7 +58,7 @@ function saveCarUpdate(id) {
 	$.ajax({
         url: '/cars/' + id,
         type: 'PUT',
-        data: 'bodyID=' + bodyID + '&make=' + make + '&model=' + model + '&year=' + year + '&mileage=' + mileage + '&available=' + available + "&carID=" + id,
+        data: 'bodyID=' + bodyID.val + '&make=' + make.val + '&model=' + model.val + '&year=' + year.val + '&mileage=' + mileage.val + '&available=' + available.val + "&carID=" + id,
         success: function(result){
             window.location.reload(true);
         }
