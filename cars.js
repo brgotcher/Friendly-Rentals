@@ -46,7 +46,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	})
 }
 
-// helper function for searching cars by body type
+// helper function for searching cars by make
 
 function getCarsByMake(req, res, mysql, context, complete) {
 	console.log("GETCARSBYMAKE");
