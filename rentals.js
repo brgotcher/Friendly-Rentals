@@ -62,7 +62,7 @@ router.get('/rentals/searchByLastName/:s', function(req, res){
 	var context = {};
 	context.jsscripts = ["deleterentals.js", "searchrentals.js"];
 	var mysql = req.app.get('mysql');
-	searchRentalsByLastName(req, res, mysql, context, complete);
+	getRentalsByLastName(req, res, mysql, context, complete);
 	function complete(){
 		callbackCount++;
 		if(callbackCount >= 1){
