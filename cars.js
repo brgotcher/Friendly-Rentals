@@ -25,7 +25,7 @@ function getCarsByBodyType(req, res, mysql, context, complete) {
 	var query = "SELECT * FROM  cars WHERE bodyID = ''";
 	for (var i = 0; i < searchArr.length; i++) {
 		console.log(searchArr[i]);
-		query += " OR bodyID = (SELECT bodyID FROM bodies WHERE type = '" + searchArr[i] + "'";
+		query += " OR bodyID = (SELECT bodyID FROM bodies WHERE type = '" + searchArr[i] + "')";
 	}
 	// for (var i = 0; i < searchArr.length; i++) {
 	// 	console.log(searchArr[i]);
