@@ -33,7 +33,7 @@ INSERT INTO `customers` (`customerID`, `customerFirst`, `customerLast`, `phone`,
 -- 
 DROP TABLE IF EXISTS `bodies`;
 CREATE TABLE `bodies` (
-	`bodyID` INT(11) NOT NULL,
+	`bodyID` INT(11) NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(255) NOT NULL,
 	`ratePerDay` DECIMAL(6, 2) NOT NULL,
 	PRIMARY KEY (`bodyID`)
