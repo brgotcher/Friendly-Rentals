@@ -1,4 +1,4 @@
-<h2>Cars table</h2>
+<h2>Cars Table</h2>
 <table>
   <tr>
     <th>carID</th>
@@ -22,7 +22,7 @@
   {{/each}}
 </table>
 
-<h2>Customers table</h2>
+<h2>Customers Table</h2>
 <table>
 		<tr>
 			<th>customerID</th>
@@ -51,7 +51,7 @@
 
 	</table>
 
-<h2>rentals</h2>
+<h2>Rentals</h2>
 <table>
   <tr>
     <th>car ID</th>
@@ -82,11 +82,10 @@
 
 
 <div>
-<h2>Edit Rentals Table</h2>
 
 <div class="row">
 	<div class="columnLeft">
-  	<h4>Add New Rental</h4>
+  	<h4>Add New Rental:</h4>
     <form id="addRental" action="/rentals", method="post">
 			<label for="car_id">Car ID: </label><br>
       <input type="text" id="car_id" name="carID" required><br>
@@ -111,7 +110,7 @@
   </div>
   
   <div class="columnMiddle">
-  	<h4>Search Rentals</h4>
+  	<h4>Search Rentals:</h4>
     <form>
 			<label for="customer">Customer ID: </label><br>
       <input type="text" id="customer"><br>
@@ -126,18 +125,7 @@
   </div>
 
 
-  <div class="columnRight">
-    <h4>Delete a Rental</h4>
-      <form>
-        <label for="delCar">Car ID: </label><br>
-        <input type="text" id="delCar"><br>
-        <label for="delCustomer">Customer ID: </label><br>
-        <input type="text" id="delCustomer"><br>
-        <label for="delDate">Date: </label><br>
-        <input type="date" id="delDate"><br><br>
-        <input type="submit">
-      </form>
-  </div>
+
 </div>
 
 </div>

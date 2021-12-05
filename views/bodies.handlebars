@@ -1,10 +1,10 @@
 <div id="table">
-<h2>Body types table</h2>
+<h2>Body Types Table</h2>
 <table>
   <tr>
     <th>Body ID</th>
-    <th>type</th>
-    <th>rate</th>
+    <th>Type</th>
+    <th>Rate</th>
   </tr>
   {{#each bodies}}
   <tr id="row{{this.bodyID}}">
@@ -21,48 +21,21 @@
 </div>
 
 <div>
-<h2>Body types</h2>
+
 
 <div class="row">
 	<div class="columnLeft">
-  	<h4>Add new body type: </h4>
+  	<h4>Add A New Body Type: </h4>
     <form id="addBody" action="/bodies" method="post">
 			<label for="bodyName">Name: </label><br>
       <input type="text" id="bodyName" name="type"><br>
-      <label for="rate">Daily rate: </label><br>
+      <label for="rate">Daily Rate: </label><br>
       <input type="text" id="rate" name="ratePerDay" required><br>
       <br>
       <input type="submit" value="Add">  
 		</form>
   </div>
-  
-  <div class="columnMiddle">
-  	<h4>Change Rate: </h4>
-    <form>
-			<label for="body_change">Body type: </label><br>
-      <select name="body_change" id="body_change">
-        <option value="sedan">Sedan</option>
-        <option value="suv">SUV</option>
-        <option value="truck">Truck</option>
-        <option value="van">Van</option>
-      </select><br>
-      <label for="new_rate">New rate: </label><br>
-      <input type="number" id="new_rate" required><br>
-      <br>
-      <input type="submit" value="Change">
-    </form>
-  </div>
 
-
-  <div class="columnRight">
-    <h4>Delete a body type</h4>
-      <form>
-        <label for="delID">Body ID: </label><br>
-        <input type="text" id="delID"><br>
-        <br>
-        <input type="submit">
-      </form>
-  </div>
 </div>
 
 </div>
