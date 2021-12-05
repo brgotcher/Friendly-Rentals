@@ -106,7 +106,7 @@ router.get('/cars/searchByMake/:s', function(req, res){
 router.post('/cars', function(req, res){
 	var mysql = req.app.get('mysql');
 	body = req.body.body;
-	var sql = "INSERT INTO cars (bodyID, make, model, year, mileage) VALUES ((SELECT bodyID FROM bodies WHERE type='" + body + "'), ?, ?, ?, ?);";
+	var sql = "INSERT INTO cars (bodyID, make, model, year, mileage) VALUES ((SELECT bodyID FROM bodies WHERE type=" + body + "), ?, ?, ?, ?);";
 	var inserts = [req.body.make, req.body.model, req.body.year, req.body.mileage];
 	console.log(inserts);
 	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
