@@ -12,9 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/static', express.static('public'));
 //app.use(express.static('public'));
 app.set('view engine', 'handlebars');
-app.set('port', process.argv[2]);
+// app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/', express.static('public'));
+
+const PORT = process.env.PORT || 3412;
 
 const customerpreferences = require('./customerpreferences.js');
 const cars = require('./cars.js');
@@ -67,6 +69,8 @@ app.use(function (err, req, res, next) {
   res.render('500');
 });
 
-app.listen(app.get('port'), function () {
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
-});
+// app.listen(app.get('port'), function () {
+//   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+// });
+
+app.listen(PORT);
